@@ -8,6 +8,7 @@ import org.junit.Test;
 import plus.gaga.middleware.sdk.domain.model.ChatCompletionRequest;
 import plus.gaga.middleware.sdk.domain.model.ChatCompletionSyncResponse;
 import plus.gaga.middleware.sdk.domain.model.Message;
+import plus.gaga.middleware.sdk.domain.model.Model;
 import plus.gaga.middleware.sdk.types.utils.BearerTokenUtils;
 
 import java.io.BufferedReader;
@@ -17,6 +18,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 /**
  * Unit test for simple App.
@@ -30,7 +32,7 @@ public class AppTest extends TestCase {
 
     @Test
     public void test_http() throws IOException {
-        String apiKeySecret = "c78fbacd3e10118ad5649d7a54a3a163.UunYDBxpzeClvSKZ";
+        String apiKeySecret = "4d37d6ee89a1414189ee173641d67b58.KsBDOJUF7TEhvtE4";
         //步骤一：获取 Token
         String token = BearerTokenUtils.getToken(apiKeySecret);
         //配置请求头，模拟浏览器行为使用 POST 方法发送 JSON 请求体setDoOutput(true) 表示要写入 body 数据

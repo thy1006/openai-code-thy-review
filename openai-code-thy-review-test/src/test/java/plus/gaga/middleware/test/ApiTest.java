@@ -18,9 +18,9 @@ public class ApiTest {
 
     @Test
     public void test() throws Exception {
-        System.out.println(Integer.parseInt("aaaa4"));
-        System.out.println(Integer.parseInt("aaaa5"));
-        System.out.println(Integer.parseInt("aaaa6"));
+        System.out.println(Integer.parseInt("aaaa"));
+        System.out.println(Integer.parseInt("aaaa"));
+        System.out.println(Integer.parseInt("aaaa"));
     }
 
 }
