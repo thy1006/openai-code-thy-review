@@ -12,6 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 
 public class OpenAiCodeReview {
 
@@ -43,18 +44,25 @@ public class OpenAiCodeReview {
         String apiKeySecret = "4d37d6ee89a1414189ee173641d67b58.KsBDOJUF7TEhvtE4";
         //步骤一：获取 Token
         String token = BearerTokenUtils.getToken(apiKeySecret);
+        //第二步：配置 HTTP 请求
         //配置请求头，模拟浏览器行为使用 POST 方法发送 JSON 请求体setDoOutput(true) 表示要写入 body 数据
         URL url = new URL("https://open.bigmodel.cn/api/paas/v4/chat/completions");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
+        //设置请求头 + 方法 + 输出流
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Authorization", "Bearer " + token);
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
         connection.setDoOutput(true);
-
+        //构造请求体（JSON）
         ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
         chatCompletionRequest.setModel(Model.GLM_4_FLASH.getCode());
+
+//        List<ChatCompletionRequest.Prompt> prompts = new ArrayList<>();
+//        prompts.add(new ChatCompletionRequest.Prompt("user", "你是一个高级编程架构师..."));
+//        prompts.add(new ChatCompletionRequest.Prompt("user", diffCode));
+//        chatCompletionRequest.setMessages(prompts);
+
         chatCompletionRequest.setMessages(new ArrayList<ChatCompletionRequest.Prompt>() {
             private static final long serialVersionUID = -7988151926241837899L;
 
@@ -63,7 +71,7 @@ public class OpenAiCodeReview {
                 add(new ChatCompletionRequest.Prompt("user", diffCode));
             }
         });
-
+        //发送请求体数据
         try(OutputStream os = connection.getOutputStream()){
             byte[] input = JSON.toJSONString(chatCompletionRequest).getBytes(StandardCharsets.UTF_8);
             os.write(input);
@@ -83,7 +91,7 @@ public class OpenAiCodeReview {
         in.close();
         connection.disconnect();
         //将返回结果解析为 ChatCompletionSyncResponse 对象（需要提前定义对应 Java 类或引入 SDK）。
-        //输出模型生成的代码审查内容。
+        //输出模型生成的代码审查内容。解析响应为对象
         System.out.println("评审结果：" + content.toString());
         ChatCompletionSyncResponse response = JSON.parseObject(content.toString(), ChatCompletionSyncResponse.class);
 
