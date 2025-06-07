@@ -31,4 +31,4 @@ jobs:
         run: mvn dependency:copy -Dartifact=plus.gaga.middleware:openai-code-thy-review-sdk:1.0-SNAPSHOT -DoutputDirectory=./libs
 
       - name: Run Code Review
-        run: java -jar ./libs/openai-code-thy-review-sdk-1.0.jar
+        run: java -jar ./libs/openai-code-thy-review-sdk-1.0-SNAPSHOT.jar
