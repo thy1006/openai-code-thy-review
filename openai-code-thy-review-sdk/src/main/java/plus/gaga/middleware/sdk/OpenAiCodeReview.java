@@ -131,7 +131,7 @@ public class OpenAiCodeReview {
         }
         git.add().addFilepattern(dateFolderName+"/"+fileName).call();
         git.commit().setMessage("Add new file via GitHub Actions").call();
-        git.pull().setCredentialsProvider(new UsernamePasswordCredentialsProvider(token,"")).call();
+        git.push().setCredentialsProvider(new UsernamePasswordCredentialsProvider(token,"")).call();
         System.out.println("Changes have been pushed to the repository.");
         return "https://github.com/thy1006/openai-code-review-log/blob/master/" + dateFolderName + "/" + fileName;
     }
