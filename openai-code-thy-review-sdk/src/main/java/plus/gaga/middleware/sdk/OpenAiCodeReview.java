@@ -1,8 +1,6 @@
 package plus.gaga.middleware.sdk;
 
 import com.alibaba.fastjson2.JSON;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import plus.gaga.middleware.sdk.domain.model.ChatCompletionRequest;
