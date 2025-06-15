@@ -87,18 +87,18 @@ public class AppTest extends TestCase {
 
     }
 
-//    @Test
-//    public void test_wx(){
-//        String accessToken = WXAccessTokenUtils.getAccessToken();
-//        System.out.println(accessToken);
-//
-//        Message message = new Message();
-//        message.put("project","big-market-thy");
-//        message.put("review","feat: 新加功能");
-//
-//        String url =String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s",accessToken);
-//        sendPostRequest(url,JSON.toJSONString(message));
-//    }
+    @Test
+    public void test_wx(){
+        String accessToken = WXAccessTokenUtils.getAccessToken();
+        System.out.println(accessToken);
+
+        Message message = new Message();
+        message.put("project","big-market-thy-6666");
+        message.put("review","feat: 新加功能");
+
+        String url =String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s",accessToken);
+        sendPostRequest(url,JSON.toJSONString(message));
+    }
 
 
     private static void sendPostRequest(String urlString, String jsonBody) {
