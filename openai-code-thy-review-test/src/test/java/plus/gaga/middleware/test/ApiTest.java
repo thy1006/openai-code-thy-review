@@ -20,10 +20,7 @@ public class ApiTest {
     public void test() throws Exception {
         System.out.println(Integer.parseInt("11"));
         System.out.println(Integer.parseInt("22"));
-        System.out.println(Integer.parseInt("33"));
-        System.out.println(Integer.parseInt("44"));
-        System.out.println(Integer.parseInt("55"));
-        System.out.println(Integer.parseInt("66"));
+
     }
 
 }
