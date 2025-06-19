@@ -15,14 +15,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+import java.util.Scanner;
 
-public class OpenAiCodeReview {
-
+public class OpenAiCodeReviewinit {
     public static void main(String[] args) throws Exception {
 
         System.out.println("测试执行");
-        
+
         String token = System.getenv("GITHUB_TOKEN");
         if (null == token || token.isEmpty()) {
             throw new RuntimeException("token is null");
@@ -66,7 +68,7 @@ public class OpenAiCodeReview {
         message.put("review",logUrl);
         message.setUrl(logUrl);
         String url =String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s",accessToken);
-        sendPostRequest(url,JSON.toJSONString(message));
+        sendPostRequest(url, JSON.toJSONString(message));
     }
 
     private static void sendPostRequest(String urlString, String jsonBody) {
@@ -180,5 +182,4 @@ public class OpenAiCodeReview {
         }
         return sb.toString();
     }
-
 }
