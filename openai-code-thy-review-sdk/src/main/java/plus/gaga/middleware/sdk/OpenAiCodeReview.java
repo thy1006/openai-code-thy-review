@@ -56,5 +56,4 @@ public class OpenAiCodeReview {
         }
         return value;
     }
-
 }
