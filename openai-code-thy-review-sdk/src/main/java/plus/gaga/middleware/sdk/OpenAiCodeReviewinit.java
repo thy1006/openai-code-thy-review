@@ -22,6 +22,7 @@ public class OpenAiCodeReviewinit {
     public static void main(String[] args) throws Exception {
 
         System.out.println("测试执行");
+        System.out.println("sssssssss");
 
         String token = System.getenv("GITHUB_TOKEN");
         if (null == token || token.isEmpty()) {
