@@ -1,8 +1,5 @@
 package plus.gaga.middleware.sdk.infrastructure.git;
-
-import com.sun.deploy.util.StringUtils;
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
