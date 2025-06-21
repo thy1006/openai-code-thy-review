@@ -6,6 +6,7 @@ import plus.gaga.middleware.sdk.domain.service.impl.OpenAiCodeReviewService;
 import plus.gaga.middleware.sdk.infrastructure.git.GitCommand;
 import plus.gaga.middleware.sdk.infrastructure.openai.IOpenAI;
 import plus.gaga.middleware.sdk.infrastructure.openai.impl.ChatGLM;
+import plus.gaga.middleware.sdk.infrastructure.openai.impl.DeepSeek;
 import plus.gaga.middleware.sdk.infrastructure.weixin.WeiXin;
 
 public class OpenAiCodeReview {
@@ -44,7 +45,9 @@ public class OpenAiCodeReview {
                 getEnv("WEIXIN_TOUSER"),
                 getEnv("WEIXIN_TEMPLATE_ID")
         );
-        IOpenAI openAI = new ChatGLM(getEnv("CHATGLM_APIHOST"), getEnv("CHATGLM_APIKEYSECRET"));
+//        IOpenAI openAI = new ChatGLM(getEnv("CHATGLM_APIHOST"), getEnv("CHATGLM_APIKEYSECRET"));
+        IOpenAI openAI = new DeepSeek(getEnv("CHATGLM_APIHOST"), getEnv("CHATGLM_APIKEYSECRET"));
+
         OpenAiCodeReviewService openAiCodeReviewService = new OpenAiCodeReviewService(gitCommand,openAI,weiXin);
         openAiCodeReviewService.exec();
         logger.info("openai-code-review done!");

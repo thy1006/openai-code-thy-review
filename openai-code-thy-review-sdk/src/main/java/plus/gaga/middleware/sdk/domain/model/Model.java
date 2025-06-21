@@ -19,6 +19,7 @@ public enum Model {
     GLM_4("glm-4","适用于复杂的对话交互和深度内容创作设计的场景"),
     GLM_4V("glm-4v","根据输入的自然语言指令和图像信息完成任务，推荐使用 SSE 或同步调用方式请求接口"),
     GLM_4_FLASH("glm-4-flash","适用简单任务，速度最快，价格最实惠的版本，具有128k上下文"),
+    DEEPSEEK_CHAT("DeepSeek-V3-0324","deepseek模型"),
     COGVIEW_3("cogview-3","根据用户的文字描述生成图像,使用同步调用方式请求接口"),
     ;
     private final String code;

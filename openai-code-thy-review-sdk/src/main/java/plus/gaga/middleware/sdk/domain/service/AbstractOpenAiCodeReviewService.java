@@ -35,7 +35,7 @@ public  abstract class AbstractOpenAiCodeReviewService implements IOpenAiCodeRev
             // 4. 发送消息通知；日志地址、通知的内容
             pushMessage(logUrl);
         } catch (Exception e) {
-            logger.error("openai-code-review error", e);
+            logger.error("openai-code-thy-review error", e);
         }
     }
     protected abstract String getDiffCode() throws IOException, InterruptedException;
