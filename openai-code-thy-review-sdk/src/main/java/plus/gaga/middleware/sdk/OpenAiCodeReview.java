@@ -46,7 +46,7 @@ public class OpenAiCodeReview {
                 getEnv("WEIXIN_TEMPLATE_ID")
         );
 //        IOpenAI openAI = new ChatGLM(getEnv("CHATGLM_APIHOST"), getEnv("CHATGLM_APIKEYSECRET"));
-        IOpenAI openAI = new DeepSeek(getEnv("CHATGLM_APIHOST"), getEnv("CHATGLM_APIKEYSECRET"));
+        IOpenAI openAI = new DeepSeek(getEnv("DEEPSEEK_APIHOST"), getEnv("DEEPSEEK_APIKEYSECRET"));
 
         OpenAiCodeReviewService openAiCodeReviewService = new OpenAiCodeReviewService(gitCommand,openAI,weiXin);
         openAiCodeReviewService.exec();

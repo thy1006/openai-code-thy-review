@@ -3,11 +3,10 @@ name: Build and Run OpenAiCodeReview By Main Maven Jar
 on:
   push:
     branches:
-      - master-close
+      - master
   pull_request:
     branches:
-      - master-close
-
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -71,3 +70,5 @@ jobs:
           # OpenAi - ChatGLM 配置「https://open.bigmodel.cn/api/paas/v4/chat/completions」、「https://open.bigmodel.cn/usercenter/apikeys」
           CHATGLM_APIHOST: ${{ secrets.CHATGLM_APIHOST }}
           CHATGLM_APIKEYSECRET: ${{ secrets.CHATGLM_APIKEYSECRET }}
+          DEEPSEEK_APIHOST: ${{ secrets.DEEPSEEK_APIHOST }}
+          DEEPSEEK_APIKEYSECRET: ${{ secrets.DEEPSEEK_APIKEYSECRET }}
