@@ -12,6 +12,7 @@
   <modules>
     <module>openai-code-thy-review-sdk</module>
     <module>openai-code-thy-review-test</module>
+    <module>openai-code-thy-review-test</module>
   </modules>
 
   <properties>

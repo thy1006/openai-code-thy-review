@@ -29,7 +29,7 @@ public class OpenAiCodeReviewinit {
         if (null == token || token.isEmpty()) {
             throw new RuntimeException("token is null");
         }
-        //1.代码检出
+        //1.代码检出HEAD~1 表示上一个提交（HEAD 是当前的提交，HEAD~1 是它的前一个提交）。HEAD 是当前提交。
         ProcessBuilder processBuilder = new ProcessBuilder("git", "diff", "HEAD~1", "HEAD");
         processBuilder.directory(new File("."));
         Process process = processBuilder.start();

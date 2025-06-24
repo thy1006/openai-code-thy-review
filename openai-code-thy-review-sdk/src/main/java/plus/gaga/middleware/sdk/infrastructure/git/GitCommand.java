@@ -36,8 +36,9 @@ public class GitCommand {
 
     public String diff() throws IOException, InterruptedException {
         // openai.itedus.cn
-        //获取最新提交的 Hash 值：
+        //获取最新提交的 Hash 值：-1 表示只获取最新的一个提交。--pretty=format:%H 表示输出提交的完整哈希值。
         ProcessBuilder logProcessBuilder = new ProcessBuilder("git", "log", "-1", "--pretty=format:%H");
+        //设置 ProcessBuilder 的工作目录为当前目录，确保 Git 命令在正确的仓库目录下执行。
         logProcessBuilder.directory(new File("."));
         Process logProcess = logProcessBuilder.start();
         //读取输出并获取最新提交的哈希值
@@ -47,7 +48,7 @@ public class GitCommand {
         //等待进程执行完成
         logProcess.waitFor();
 
-        //获取最新提交与其前一个提交之间的差异：
+        //获取最新提交与其前一个提交之间的差异：latestCommitHash^ 表示当前提交的父提交（即前一个提交）。latestCommitHash 是当前提交。
         ProcessBuilder diffProcessBuilder = new ProcessBuilder("git", "diff", latestCommitHash + "^", latestCommitHash);
         diffProcessBuilder.directory(new File("."));
         Process diffProcess = diffProcessBuilder.start();
@@ -95,7 +96,6 @@ public class GitCommand {
         logger.info("openai-code-review git commit and push done! {}", fileName);
         // 返回文件的 GitHub 链接
         return githubReviewLogUri + "/blob/master/" + dateFolderName + "/" + fileName;
-
     }
 
     public Logger getLogger() {
